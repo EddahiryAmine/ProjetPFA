@@ -21,3 +21,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
         return response()->json(['message' => 'Lien de vérification envoyé.']);
     })->middleware('throttle:6,1')->name('verification.send');
 });
+
+Route::middleware('auth:sanctum')->get('/me', [AuthController::class, 'me']);
